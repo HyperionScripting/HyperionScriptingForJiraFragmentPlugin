@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ionfraction</groupId>
+    <artifactId>hyperion-fragment-plugin</artifactId>
+    <version>1.0.0</version>
+
+    <organization>
+        <name>Ion Fraction OÜ</name>
+        <url>http://ionfraction.com</url>
+    </organization>
+    <name>Hyperion Scripting for JIRA Host fragment plugin.</name>
+    <description>Hyperion Scripting for JIRA OSGi fragment plugin for importing additional Java classes.</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+                        <Fragment-Host>com.ionfraction.hyperion-jira-plugin</Fragment-Host>
+                        <Import-Package>
+                            hyperion.jira.extension.context.template;resolution:="optional"
+                        </Import-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
